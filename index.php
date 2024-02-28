@@ -2,7 +2,7 @@
 <!-- Consegna: creare una web-app che permetta di leggere una lista di dischi presente nel nostro server.-->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme='dark'>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,28 @@
 <body>
     
     <div id="app">
-
+        <header class="mx-auto bg-black" style='height: 3em;'>
+            <div class="w-75 mx-auto d-flex align-items-center">
+                <figure>
+                    <img src="./assets/img/spotify_logo_icon_229290.png" alt="logo" style='height: 2em;' class="my-2">
+                </figure>
+            </div>
+        </header>
+        <main>
+            <div class="w-75 mx-auto d-flex container mt-5">
+                <div class="row justify-content-between">
+                    <div class="card text-center mb-4" style="width: 18rem;" v-for='(element, index) in albumList' :key='index'>
+                        <img :src="element.poster" class="card-img-top" alt="..." style='width: 100%;'>
+                        <div class="card-body">
+                            <h5 class="card-title">{{element.title}}</h5>
+                            <small>{{element.author}}</small>
+                            <h5 class="mt-2">{{element.year}}</h5>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
     </div>
 
 
@@ -29,6 +50,6 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <!-- link to my js -->
-    <script src="./js/main.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>
