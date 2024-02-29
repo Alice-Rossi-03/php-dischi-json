@@ -25,9 +25,9 @@
         <main>
             <div class="w-75 mx-auto d-flex container mt-5">
                 <div class="row justify-content-between">
-                    <div class="card text-center mb-4" style="width: 18rem;" v-for='(element, index) in albumList' :key='index'>
+                    <div class="card mb-4 border-0 bg-dark-subtle p-0" style="width: 16rem;" v-for='(element, index) in albumList' :key='index'>
                         <img :src="element.poster" class="card-img-top" alt="..." style='width: 100%;'>
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <h5 class="card-title">{{element.title}}</h5>
                             <small>{{element.author}}</small>
                             <h5 class="mt-2">{{element.year}}</h5>
