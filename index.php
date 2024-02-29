@@ -14,18 +14,18 @@
 </head>
 <body>
     
-    <div id="app">
-        <header class="mx-auto bg-black" style='height: 3em;'>
+    <div id="app" class="position-relative">
+        <header class="mx-auto bg-black" style='height: 5em;'>
             <div class="w-75 mx-auto d-flex align-items-center">
                 <figure>
-                    <img src="./assets/img/spotify_logo_icon_229290.png" alt="logo" style='height: 2em;' class="my-2">
+                    <img src="./assets/img/spotify_logo_icon_229290.png" alt="logo" style='height: 3em;' class="my-3">
                 </figure>
             </div>
         </header>
         <main>
             <div class="w-75 mx-auto d-flex container mt-5">
-                <div class="row justify-content-between">
-                    <div class="card mb-4 border-0 bg-dark-subtle p-0" style="width: 16rem;" v-for='(element, index) in albumList' :key='index'>
+                <div class="d-flex flex-wrap justify-content-center" style='gap: 1.5em;'>
+                    <div class="card mb-4 border-0 bg-dark-subtle p-0" style="width: calc(100% / 3 - 1.5em); " v-for='(element, index) in albumList' :key='index' @click='showSong(index)'>
                         <img :src="element.poster" class="card-img-top" alt="..." style='width: 100%;'>
                         <div class="card-body text-center">
                             <h5 class="card-title">{{element.title}}</h5>
@@ -37,6 +37,16 @@
                 </div>
             </div>
         </main>
+        <div v-if='current' class="position-absolute top-0 bottom-0 start-0 end-0 d-flex justify-content-center align-items-center bg-black bg-opacity-75" @click='hideSong()'>
+            <div class="card mb-4 border-0 bg-dark-subtle p-0" style="width: calc(100% / 3 - 1.5em); ">
+                <img :src="currentSong.poster" class="card-img-top" alt="..." style='width: 100%;'>
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{currentSong.title}}</h5>
+                    <small>{{currentSong.author}}</small>
+                    <h5 class="mt-2">{{currentSong.year}}</h5>
+                </div>
+            </div>
+        </div>
     </div>
 
 

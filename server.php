@@ -7,6 +7,13 @@ $string = file_get_contents('store.json');
 $list = json_decode($string, true);
 // var_dump($list);
 
+// condizione del click
+if(isset($_POST['songIndex'])){
+    $song_index = $_POST['songIndex'];
+    $song = $list[$song_index];
+    $list = $song;
+};
+
 header('Content-Type: application/json'); 
 
 // ricodifichiamo l'array in stringa json
